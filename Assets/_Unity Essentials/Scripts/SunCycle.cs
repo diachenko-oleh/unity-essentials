@@ -10,23 +10,15 @@ public class SunCycle : MonoBehaviour
     public Light directionalLight;
     public Gradient lightColor;
     public AnimationCurve lightIntensity;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        // Calculate time progression from 0 to 1
         cycleTime += (Time.deltaTime / dayLength) * sunspeed;
         cycleTime %= 1f;
 
-        // Rotate the light to simulate the sun movement
         float sunAngle = cycleTime * 360f - sunStartAngle;
         directionalLight.transform.rotation = Quaternion.Euler(sunAngle, 0, 0);
 
-        // Adjust light color and intensity
         directionalLight.color = lightColor.Evaluate(cycleTime);
         directionalLight.intensity = lightIntensity.Evaluate(cycleTime);
     }
