@@ -31,8 +31,8 @@ public class UpdateCollectibleCount : MonoBehaviour
 
     private void UpdateCollectibleDisplay()
     {
-        int remaining2D = FindObjectsOfType<Collectible2D>().Length;
-        int remaining3D = FindObjectsOfType<Collectible>().Length;
+        int remaining2D = FindObjectsByType<Collectible2D>(FindObjectsSortMode.None).Length;
+        int remaining3D = FindObjectsByType<Collectible>(FindObjectsSortMode.None).Length;
 
         int totalRemaining = remaining2D + remaining3D;
         int total = totalCollectibles2D + totalCollectibles3D;
